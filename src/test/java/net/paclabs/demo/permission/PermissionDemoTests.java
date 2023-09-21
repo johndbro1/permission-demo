@@ -1,4 +1,4 @@
-package net.paclabs.permitio.demo;
+package net.paclabs.demo.permission;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -9,10 +9,10 @@ import java.util.Map.Entry;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import net.paclabs.permitio.demo.api.helper.KVHelper;
+import net.paclabs.demo.permission.api.helper.KVHelper;
 
 @SpringBootTest
-class DemoApplicationTests {
+class PermissionDemoTests {
 
 	@Test
 	void contextLoads() {
@@ -51,4 +51,5 @@ class DemoApplicationTests {
 		assertThat(e.getValue(), is("value"));
 		
 	}
+
 }

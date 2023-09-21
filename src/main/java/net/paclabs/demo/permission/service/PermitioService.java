@@ -1,4 +1,4 @@
-package net.paclabs.permitio.demo.service;
+package net.paclabs.demo.permission.service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,8 +15,8 @@ import io.permit.sdk.enforcement.Resource;
 import io.permit.sdk.enforcement.User;
 import io.permit.sdk.openapi.models.UserCreate;
 import io.permit.sdk.openapi.models.UserRead;
-
-import net.paclabs.permitio.demo.AppConfig;
+import jakarta.annotation.PostConstruct;
+import net.paclabs.demo.permission.AppConfig;
 
 @Service
 public class PermitioService {
@@ -46,7 +46,7 @@ public class PermitioService {
 	public Map<String, String> query( Map<String, Object> input ) {
 		
 
-    	User user = User.fromString(input.get("username")); // pass the user *key* to init a user object from string
+    	User user = User.fromString((String)input.get("username")); // pass the user *key* to init a user object from string
     	
     	String action = "read";
     	if ("POST".equals(input.get("method"))) {
@@ -59,24 +59,32 @@ public class PermitioService {
     	
     	String service = (String) input.get("service");
     	
-    	Resource resource = new Resource.Builder(service)
+    	final Resource resource = new Resource.Builder(service)
             // you can set a specific tenant for the permission check
             // .withTenant("<TENANT KEY>")
     		.build();
 
-        // to run a permission check, use permit.check()
-    	boolean permitted = permit.check(user, action, resource);
-
-    	String message = user.toString()+" is NOT permitted to perform "+action+" on "+service;
-    	if (permitted) {
-    			message = user.toString()+" is PERMITTED to "+action+" to "+service;
+		final Map<String, String> results = new HashMap<>();
+    	
+    	try {
+	        // to run a permission check, use permit.check()
+	    	boolean permitted = permit.check(user, action, resource);
+	
+	    	String message = user.toString()+" is NOT permitted to perform "+action+" on "+service;
+	    	if (permitted) {
+	    			message = user.toString()+" is PERMITTED to "+action+" to "+service;
+	    	}
+			
+			results.put("approve", Boolean.toString(permitted));
+			results.put("message", message);
+		
+    	} catch (Exception e) {
+    		
+    		log.warn(e.getMessage(), e);
+    		
+    		results.put("approve", Boolean.toString(false));
+    		results.put("message", "Internal error");
     	}
-		
-		Map<String, String> results = new HashMap<>();
-		results.put("approve", Boolean.toString(permitted));
-		results.put("message", message);
-		
-					
 		return results;
 	}
 	

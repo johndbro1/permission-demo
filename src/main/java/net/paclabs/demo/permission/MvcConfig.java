@@ -1,4 +1,4 @@
-package net.paclabs.permitio.demo;
+package net.paclabs.demo.permission;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package net.paclabs.permitio.demo.api.webapp;
+package net.paclabs.demo.permission.api.webapp;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 
-import net.paclabs.permitio.demo.api.helper.KVHelper;
-import net.paclabs.permitio.demo.api.request.ActionRequest;
-import net.paclabs.permitio.demo.service.PermitioService;
+import net.paclabs.demo.permission.api.helper.KVHelper;
+import net.paclabs.demo.permission.api.request.ActionRequest;
+import net.paclabs.demo.permission.service.PermitioService;
 
 @CrossOrigin
 @RestController

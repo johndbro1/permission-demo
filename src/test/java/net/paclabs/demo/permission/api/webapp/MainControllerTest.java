@@ -1,4 +1,4 @@
-package net.paclabs.permitio.demo.api.webapp;
+package net.paclabs.demo.permission.api.webapp;
 
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -27,9 +27,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import net.paclabs.common.helper.GsonHelper;
-import net.paclabs.permitio.demo.AppConfig;
-import net.paclabs.permitio.demo.api.request.ActionRequest;
-import net.paclabs.permitio.demo.service.PermitioService;
+import net.paclabs.demo.permission.AppConfig;
+import net.paclabs.demo.permission.api.request.ActionRequest;
+import net.paclabs.demo.permission.service.PermitioService;
 
 @ExtendWith(MockitoExtension.class)
 @SpringJUnitConfig(AppConfig.class)

@@ -1,4 +1,4 @@
-package net.paclabs.permitio.demo.api.helper;
+package net.paclabs.demo.permission.api.helper;
 
 import java.util.AbstractMap;
 import java.util.Map.Entry;

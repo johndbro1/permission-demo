@@ -1,4 +1,4 @@
-package net.paclabs.permitio.demo.api.request;
+package net.paclabs.demo.permission.api.request;
 
 public class ActionRequest {
 
