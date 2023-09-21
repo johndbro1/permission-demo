@@ -7,10 +7,12 @@
 # YES
 #
 
+HOSTNAME=127.0.0.1
+
 wget -q -O- --post-data \
-         '{ "username":"johnbr@paclabs.net", "role":"r_admin", "resource":"devops", "param1":"method=GET" }' \
+         '{ "username":"johnbr@paclabs.net", "role":"r_admin", "service":"devops", "param1":"method=GET" }' \
          --header='Content-Type:application/json' \
          --no-check-certificate \
-         https://permitio.paclabs.sh:8080/api/v1/main/action
+         http://$HOSTNAME:8080/api/v1/main/action
 
 
