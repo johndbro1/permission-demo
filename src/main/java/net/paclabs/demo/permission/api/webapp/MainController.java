@@ -75,7 +75,7 @@ public class MainController {
 	public String getAction( 
 			@RequestParam String username, 
 			@RequestParam String service, 
-			@RequestParam String role, 
+			@RequestParam(required=false) String role, 
 			@RequestParam(required=false) String param1,
 			@RequestParam(required=false) String param2,
 			@RequestParam(required=false) String param3,
@@ -96,7 +96,7 @@ public class MainController {
         
         input.put("username", username);
         input.put("service", service);
-        input.put("role", role);  // this is not used for permit.io
+        input.put("role", "n/a");  // this is not used for permit.io
         
         add(input, e1);
         add(input, e2);
@@ -128,7 +128,8 @@ public class MainController {
         
         input.put("username", request.getUsername());
         input.put("service", request.getService());
-        input.put("role", request.getRole());    // this is not used in permit.io
+        // input.put("role", request.getRole());    // this is not used in permit.io        
+        input.put("role", "n/a");    // this is not used in permit.io
         
         add(input, e1);
         add(input, e2);

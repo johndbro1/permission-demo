@@ -9,14 +9,16 @@ this assumes you have the Spring app running on localhost on port 8080
 </p>
 <form method="GET" action="http://127.0.0.1:8080/api/v1/main/action">
 
+<p>johnbr@paclabs.net is an admin user, john.doe@paclabs.net is a regular user, jane.roe@paclabs.net is an editor</p>
 <label for="username">Username:</label><br>
 <input type="text" id="username" name="username" value="johnbr@paclabs.net"><br>
 
-<p>r_admin, r_editor, r_user</p>
+<!--
 <label for="role">Role:</label><br>
-<input type="text" id="role" name="role" value="r_user"><br><br>
+-->
+<!-- input type="text" id="role" name="role" value="r_user" --><br><br>
 
-<p>devops or finance</p>
+<p>devops or finance. johnbr can do anything with both. editors can read finance, create/read/update devops, users can read devops</p>
 <label for="service">Service:</label><br>
 <input type="text" id="service" name="service" value="devops"><br><br>
 
