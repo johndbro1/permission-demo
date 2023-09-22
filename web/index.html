@@ -1,0 +1,33 @@
+<head>
+<title>Permissions Demo</title>
+</head>
+<body>
+<h1>Permission Demo</h1>
+<p>This is a demo of using Policy-as-Code tools for authorization control</p>
+<p>
+this assumes you have the Spring app running on localhost on port 8080
+</p>
+<form method="GET" action="http://127.0.0.1:8080/api/v1/main/action">
+
+<label for="username">Username:</label><br>
+<input type="text" id="username" name="username" value="johnbr@paclabs.net"><br>
+
+<p>r_admin, r_editor, r_user</p>
+<label for="role">Role:</label><br>
+<input type="text" id="role" name="role" value="r_user"><br><br>
+
+<p>devops or finance</p>
+<label for="service">Service:</label><br>
+<input type="text" id="service" name="service" value="devops"><br><br>
+
+<p>method=GET for read, method=PUT for create, method=POST for update, method=DELETE for delete</p>
+<label for="param1">Param1 (key=value):</label><br>
+<input type="text" id="param1" name="param1" value="method=GET"><br><br>
+
+<input type="submit" value="Submit">
+
+
+
+</form>
+</body>
+
